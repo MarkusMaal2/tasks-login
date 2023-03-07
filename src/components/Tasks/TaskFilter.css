@@ -1,0 +1,29 @@
+.tasks-filter {
+    color: #5B005B;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.tasks-filter__control {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: column;
+    margin: 1rem 0;
+}
+
+.tasks-filter label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.tasks-filter select {
+    font: inherit;
+    padding: 0.5rem 3rem;
+    font-weight: normal;
+    background: white;
+    border: 1px solid;
+    color: #5B005B;
+    border-radius: 20px;
+}
