@@ -1,13 +1,42 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import Card from '../UI/Card/Card';
 import classes from './Home.module.css';
+import NewTask from '../NewTask/NewTask.js'
 
 const Home = (props) => {
+    const DUMMY_TASKS = [
+        {
+            id: 'e1',
+            date: new Date(2023, 0, 10),
+            title: "Study React.js",
+            priority: 3
+        },
+        {
+            id: 'e2',
+            date: new Date(2024, 6, 23),
+            title: "Study Javascript",
+            priority: 3
+        }
+    ]
+
+    const [currentPriority, setCurrentPriority] = useState(0)
+    const [tasks, setTasks] = useState(DUMMY_TASKS)
+    const addTaskHandler = (task) => {
+        console.log("Recieved in App.js")
+        setTasks((previousTasks) => {
+            return [task, ...tasks]
+        })
+    }
+    const changePriorityHandler = (priority) => {
+        setCurrentPriority((previousPriority) => {
+            return priority
+        })
+    }
   return (
-    <Card className={classes.home}>
-      <h1>Welcome back!</h1>
-    </Card>
+    <>
+      <NewTask onAddTask={addTaskHandler}></NewTask>
+    </>
   );
 };
 
