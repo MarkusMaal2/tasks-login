@@ -49,12 +49,18 @@ function App() {
             return priority
         })
   }
+
+  const addTaskHandler = (task) => {
+      setTasks((previousTasks) => {
+          return [task, ...tasks]
+      })
+  }
   return (
     <AuthContext.Provider value={{isLoggedIn: isLoggedIn, onLogout:logoutHandler} }>
       <MainHeader onLogout={logoutHandler} />
       <main>
         {!isLoggedIn && <Login onLogin={loginHandler} />}
-        {isLoggedIn && <Home onLogout={logoutHandler} />}
+        {isLoggedIn && <Home onAddTask={addTaskHandler} onLogout={logoutHandler} />}
           <Tasks onChangePriority={changePriorityHandler} tasks={tasks} currentPriority={currentPriority}></Tasks>
       </main>
     </AuthContext.Provider>

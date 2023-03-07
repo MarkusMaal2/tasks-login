@@ -21,12 +21,8 @@ const Home = (props) => {
     ]
 
     const [currentPriority, setCurrentPriority] = useState(0)
-    const [tasks, setTasks] = useState(DUMMY_TASKS)
     const addTaskHandler = (task) => {
-        console.log("Recieved in App.js")
-        setTasks((previousTasks) => {
-            return [task, ...tasks]
-        })
+        props.onAddTask(task)
     }
     const changePriorityHandler = (priority) => {
         setCurrentPriority((previousPriority) => {
